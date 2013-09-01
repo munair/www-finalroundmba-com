@@ -87,7 +87,7 @@ git branch
 sleep 5
 vi $1
 git add $1
-git commit -m
+git commit -m "$2"
 git push origin development
 git checkout staging
 git branch
