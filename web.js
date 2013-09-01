@@ -31,7 +31,8 @@ app.post('/contact', function(request, response) {
     console.info("Sent to postmark for delivery")
   });
 
-  response.redirect('back');
+  var htmlBuffer = fs.readFileSync('contact.html', 'utf-8');
+  response.send(htmlBuffer);
 });
 
 var port = process.env.PORT || 8080;
