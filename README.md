@@ -1,7 +1,7 @@
 www-finalroundmba-com
 =====================
 
-Repository for cdoseoul.kr domain.
+Repository for finalroundmba.com domain.
 
 To clone this repository on a new AWS EC2 instance --
 
@@ -109,5 +109,5 @@ git checkout development
 
 ```
 
-See also http://www.cdoseoul.kr and [Heroku](https://www.heroku.com) for more details.
+See also http://www.finalroundmba.com and [Heroku](https://www.heroku.com) for more details.
 
