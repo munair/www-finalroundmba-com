@@ -21,7 +21,7 @@ git clone https://github.com/munair/aws_ec2_no_emacs_setup.git
 
 # Next, create an SSH key and (by copy/pasting with the mouse)
 # add it to Github at https://github.com/settings/ssh
-ssh-keygen -t rsa
+ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub
 
 # Now you can clone via SSH from github.
