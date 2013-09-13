@@ -44,8 +44,8 @@ git branch
 sleep 5
 git merge development
 git push origin staging
-heroku login
-heroku keys:add
+cat ~/.netrc | grep heroku || heroku login
+cat ~/.netrc | grep heroku || heroku keys:add
 heroku git:remote -a www-finalroundmba-com-staging -r staging-heroku
 curl http://www-finalroundmba-com-staging.herokuapp.com | more
 git push staging-heroku staging:master
