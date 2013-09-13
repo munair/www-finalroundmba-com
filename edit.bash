@@ -1,7 +1,8 @@
 #!/bin/bash
 # script name : edit.bash
 # script args : $1 -- file to be edited
-#       $2 -- comments for git
+#		$2 -- comments for git
+#		$3 -- remove interactivity if parameter equals "noprompting"
 #
 # Make certain that you are only editing the development branch.
 # Edit the file supplied as an argument to this script.
@@ -31,8 +32,8 @@ vi $1
 git add $1
 git commit -m "$2"
 git push origin development
-while true; do
-    read -p "shall we push changes to the staging GitHub repository and the staging instance on Heroku?" yn
+[ $3 == "noprompting" ] || while true; do
+    read -p "shall we push changes to the staging GitHub repository and the staging instance on Heroku? " yn
     case $yn in
         [Yy]* ) echo "proceeding..."; break;;
         [Nn]* ) exit;;
@@ -49,8 +50,8 @@ cat ~/.netrc | grep heroku || heroku keys:add
 heroku git:remote -a www-finalroundmba-com-staging -r staging-heroku
 curl http://www-finalroundmba-com-staging.herokuapp.com | more
 git push staging-heroku staging:master
-while true; do
-    read -p "shall we push changes to the master GitHub repository and the production instance on Heroku?" yn
+[ $3 == "noprompting" ] || while true; do
+    read -p "shall we push changes to the master GitHub repository and the production instance on Heroku? " yn
     case $yn in
         [Yy]* ) echo "proceeding..."; break;;
         [Nn]* ) exit;;
