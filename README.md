@@ -39,16 +39,6 @@ cd www-finalroundmba-com
 npm install express
 npm install postmark
 
-# Login and add the SSH key created previously to Heroku
-# Then create Heroku apps if they don't already exit.
-# Add all necessary add-ons if creating Heroku apps.
-heroku login
-heroku keys:add
-
-git checkout development
-exit
-# We need to logout and log back in to enable node
-
 ```
 
 Copy the contents of the 2nd script of this README.md, dump a copy into edit.bash to programmatically progress your edits to the live app
@@ -89,22 +79,40 @@ vi $1
 git add $1
 git commit -m "$2"
 git push origin development
+while true; do
+    read -p "shall we push changes to the staging GitHub repository and the staging instance on Heroku?" yn
+    case $yn in
+        [Yy]* ) echo "proceeding..."; break;;
+        [Nn]* ) exit;;
+        * ) echo "please answer yes or no.";;
+    esac
+done
 git checkout staging
 git branch
 sleep 5
 git merge development
 git push origin staging
-heroku git:remote -a munair-finalroundmba-com-stagi -r staging-heroku
-curl http://munair-finalroundmba-com-stagi.herokuapp.com | more
+heroku login
+heroku keys:add
+heroku git:remote -a www-finalroundmba-com-staging -r staging-heroku
+curl http://www-finalroundmba-com-staging.herokuapp.com | more
 git push staging-heroku staging:master
+while true; do
+    read -p "shall we push changes to the master GitHub repository and the production instance on Heroku?" yn
+    case $yn in
+        [Yy]* ) echo "proceeding..."; break;;
+        [Nn]* ) exit;;
+        * ) echo "please answer yes or no.";;
+    esac
+done
 git checkout master
 git branch
 sleep 5
 git merge staging
 git push origin master
-heroku git:remote -a munair-finalroundmba-com -r production-heroku
+heroku git:remote -a www-finalroundmba-com -r production-heroku
 git push production-heroku master:master
-curl http://munair-finalroundmba-com.herokuapp.com | more
+curl http://www-finalroundmba-com.herokuapp.com | more
 git checkout development
 
 ```
