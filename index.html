@@ -19,14 +19,16 @@
     <!-- jQuery via maxCDN -->
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 
-    <!-- Bootstrap Modal JS -->
-    <script src="https://s3-us-west-2.amazonaws.com/www-finalroundmba-com/modal.js"></script>
-
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://s3-us-west-2.amazonaws.com/www-finalroundmba-com/html5shiv.js"></script>
       <script src="https://s3-us-west-2.amazonaws.com/www-finalroundmba-com/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Final Round MBA CSS -->
+    <style type="text/css">
+	.stamp			{ border: 4px solid rgb(255, 153, 000); }
+    </style>
   </head>
 
   <body>
@@ -39,10 +41,17 @@
         <div class="page-header">
           <h1>Final Round MBA</h1>
         </div>
-        <p>Advice on getting into the prestigious Wharton MBA program from a Wharton MBA.</p>
-        <p>
-We provide application strategy and essay review services. Please fill out the form below to schedule a consultation with a Wharton MBA today. 
-<img width="20px" src="https://s3-us-west-2.amazonaws.com/www-finalroundmba-com/finalroundmba-icon.png">
+        <div class="row">
+          <div class="col-xs-12 col-md-8">
+	    <p>Application advice for the prestigious Wharton MBA program from a Wharton MBA.</p>
+	    <p>We provide application strategy and essay review services.</p>
+	    <p>Please fill out the form below to schedule a consultation today. <img width="20px" src="https://s3-us-west-2.amazonaws.com/www-finalroundmba-com/finalroundmba-icon.png"></p>
+	  </div>
+          <div class="col-xs-6 col-md-4">
+	    <img id="munair-headshot" data-toggle="popover" class="stamp pull-left img-circle" width="128" height="128" title="" data-original-title="I'm your adviser." src="https://s3-us-west-2.amazonaws.com/www-finalroundmba-com/munair-headshot.jpg">
+	  </div>
+          
+        </div>
 	</p>
 	<hr />
         <div id="stylized-form">
@@ -70,5 +79,9 @@ We provide application strategy and essay review services. Please fill out the f
         <p class="text-muted credit">Hourly Consultation Fee : 150,000 KRW</p>
       </div>
     </div>
+    <!-- Bootstrap JS -->
+    <script src="https://s3-us-west-2.amazonaws.com/www-finalroundmba-com/modal.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/www-finalroundmba-com/popover.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/www-finalroundmba-com/tooltip.js"></script>
   </body>
 </html>
